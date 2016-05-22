@@ -1,7 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+
+        <div>
+            <p>
+               teste1  teste2  teste3  teste4  teste5  teste6  teste  teste  teste  teste  teste  teste  teste  teste  teste
+               1teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste
+               1teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste
+               1teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste
+               1teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste
+               1teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste
+               1teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste  teste
+
+            </p>
+        </div>
+   {{-- </div>--}}
+
+
+{{--<div class="container">--}}
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -79,5 +96,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection
