@@ -24,13 +24,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand hidden-xs hidden-sm" style="cursor:pointer" id="menu-toggle" data-toggle="offcanvas" ng-click="sidebarOn=!sidebarOn" ng-init="sidebarOn=true">
+                    <a class="navbar-brand" style="cursor:pointer" data-toggle="offcanvas" ng-click="sidebarOn=!sidebarOn" ng-init="sidebarOn=true">
                         <i class="fa fa-bars"></i>
                     </a>
-                    <a class="navbar-brand hidden-xs"><i class="fa" ng-class="{'fa-angle-left': sidebarOn, 'fa-angle-right': !sidebarOn}"></i></a>
+                    <a class="navbar-brand"><i class="fa" ng-class="{'fa-angle-left': sidebarOn, 'fa-angle-right': !sidebarOn}"></i></a>
 
                     <a class="navbar-brand" href="{{ url('/') }}">
                         AntStyle
+                        <% sidebarOn %>
                     </a>
 
                 </div>
@@ -64,46 +65,39 @@
             </div>
         </nav>
 
-        <div id="wrapper" class="active">
+        <style>
+            .side-menu{
+                background-color: #2f4f90;
+            }
+            .side-menu > a{
+                font-size: 16px;
+                color: #fff;
+                height: 40px;
+            }
+            .side-menu > a:hover{
+                font-size: 16px;
+                color: #fff;
+                text-decoration: none;
+            }
+        </style>
 
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper" ng-init="larguraTela=">
-                <div class="row">
-                    <div class="col-sm-9 col-md-9">
-                        <ul class="sidebar-nav hidden-xs hidden-sm" id="sidebar">
-                            <li href="#" class="activeMenu"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;&nbsp;Dashboard</li>
-                            <li href="#" class=""><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Jobs</li>
-                            <li href="#" class=""><i class="fa fa-tags"></i>&nbsp;&nbsp;Tags</li>
-                            <li href="#" class=""><i class="fa fa-users"></i>&nbsp;&nbsp;Clientes</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3 col-md-3">
-                        <ul class="sidebar-nav sidebar-icon" ng-class="{'displayIcons': sidebarOn}">
-                            <li href="#" class="activeMenu"><i class="fa fa-dashboard"></i></li>
-                            <li href="#" class=""><i class="fa fa-briefcase"></i></li>
-                            <li href="#" class=""><i class="fa fa-tags"></i></li>
-                            <li href="#" class=""><i class="fa fa-users"></i></li>
-                        </ul>
-                    </div>
+        <div class="container-fluid">
+            <div class="row row-offcanvas row-offcanvas-left">
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <ul class="side-menu">
+                        <li href="#" class=" active"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;&nbsp;Dashboard</li>
+                        <li href="#" class=""><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Jobs</li>
+                        <li href="#" class=""><i class="fa fa-tags"></i>&nbsp;&nbsp;Tags</li>
+                        <li href="#" class=""><i class="fa fa-users"></i>&nbsp;&nbsp;Clientes</li>
+                        <a href="#" class=""><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Configurações</a>
+                    </ul>
                 </div>
+                <div class="col-xs-12 col-sm-9 content">
 
-            </div>
 
-
-            <!-- Page content -->
-            <div id="page-content-wrapper">
-                <!-- Keep all page content within the page-content inset div! -->
-                <div class="page-content inset">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <br>
-                            @yield('content')
-                        </div>
-                    </div>
+                    @yield('content')
                 </div>
             </div>
-
-
         </div>
 
         <div id="push"></div>
@@ -119,13 +113,20 @@
         </div>
     </footer>
 
+
     @include('connections.js')
 
-    {{--Menu toglle script--}}
     <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("active");
+        $(document).ready(function () {
+            $('[data-toggle=offcanvas]').click(function () {
+                if ($('.sidebar-offcanvas').css('background-color') == 'rgb(255, 255, 255)') {
+                    $('.list-group-item').attr('tabindex', '-1');
+                } else {
+                    $('.list-group-item').attr('tabindex', '');
+                }
+                $('.row-offcanvas').toggleClass('active');
+
+            });
         });
     </script>
 
