@@ -1,3 +1,10 @@
+<?php
+$rota = Route::getCurrentRoute()->getPath();
+$sidebar = true;
+if($rota=="/" || $rota=="register"){
+    $sidebar = false;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,11 +31,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand hidden-xs hidden-sm" style="cursor:pointer" id="menu-toggle" data-toggle="offcanvas" ng-click="sidebarOn=!sidebarOn" ng-init="sidebarOn=true">
+                    @if($sidebar)
+                    <a class="navbar-brand hidden-xs hidden-sm" style="cursor:pointer" id="menu-toggle" data-toggle="offcanvas" ng-click="sidebarOn=!sidebarOn"
+                      ng-init="sidebarOn=true">
                         <i class="fa fa-bars"></i>
                     </a>
-                    <a class="navbar-brand hidden-xs"><i class="fa" ng-class="{'fa-angle-left': sidebarOn, 'fa-angle-right': !sidebarOn}"></i></a>
 
+                    <a class="navbar-brand hidden-xs hidden-sm"><i class="fa" ng-class="{'fa-angle-left': sidebarOn, 'fa-angle-right': !sidebarOn}"></i></a>
+                    @endif
                     <a class="navbar-brand" href="{{ url('/') }}">
                         AntStyle
                     </a>
@@ -64,7 +74,17 @@
             </div>
         </nav>
 
-        <div id="wrapper" class="active">
+        @if(!$sidebar)
+            <style>
+                #wrapper{
+                    padding-left: 0;
+                }
+            </style>
+        @endif
+
+        <div id="wrapper" @if($sidebar)class="active"@endif>
+
+        @if($sidebar)
 
             <!-- Sidebar -->
             <div id="sidebar-wrapper" ng-init="larguraTela=">
@@ -90,6 +110,9 @@
             </div>
 
 
+        @endif
+
+
             <!-- Page content -->
             <div id="page-content-wrapper">
                 <!-- Keep all page content within the page-content inset div! -->
@@ -97,7 +120,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <br>
-                            @yield('content')
+                            <div class="container-fluid">
+                                @yield('content')
+                            </div>
                         </div>
                     </div>
                 </div>
