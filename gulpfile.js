@@ -26,9 +26,9 @@ elixir(function(mix) {
 
     //Controllers
 
-    //Quem Somos
-    /*mix.scripts('controllers/quemsomoCtrl.js', 'controllers/quemsomoCtrl.js');
-    mix.scripts('controllers/alterarQuemsomoCtrl.js', 'controllers/alterarQuemsomoCtrl.js');*/
+    //Jobs
+    mix.scripts('controllers/jobCtrl.js', 'public/js/controllers/jobCtrl.js');
+    mix.scripts('controllers/updateJobCtrl.js', 'public/js/controllers/updateJobCtrl.js');
 
 });
 

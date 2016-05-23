@@ -87,22 +87,22 @@ if($rota=="/" || $rota=="register"){
         @if($sidebar)
 
             <!-- Sidebar -->
-            <div id="sidebar-wrapper" ng-init="larguraTela=">
+            <div id="sidebar-wrapper">
                 <div class="row">
                     <div class="col-sm-9 col-md-9">
                         <ul class="sidebar-nav hidden-xs hidden-sm" id="sidebar">
-                            <li href="#" class="activeMenu"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;&nbsp;Dashboard</li>
-                            <li href="#" class=""><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Jobs</li>
-                            <li href="#" class=""><i class="fa fa-tags"></i>&nbsp;&nbsp;Tags</li>
-                            <li href="#" class=""><i class="fa fa-users"></i>&nbsp;&nbsp;Clientes</li>
+                            <a href="/home"><li class="@if($rota=="home")activeMenu @endif"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;&nbsp;Dashboard</li></a>
+                            <a href="/jobs"><li class="@if($rota=="jobs")activeMenu @endif"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Jobs</li></a>
+                            <a href="/tags"><li class="@if($rota=="tags")activeMenu @endif"><i class="fa fa-tags"></i>&nbsp;&nbsp;Tags</li></a>
+                            <a href="/clientes"><li class="@if($rota=="clientes")activeMenu @endif"><i class="fa fa-users"></i>&nbsp;&nbsp;Clientes</li></a>
                         </ul>
                     </div>
                     <div class="col-sm-3 col-md-3">
                         <ul class="sidebar-nav sidebar-icon" ng-class="{'displayIcons': sidebarOn}">
-                            <li href="#" class="activeMenu"><i class="fa fa-dashboard"></i></li>
-                            <li href="#" class=""><i class="fa fa-briefcase"></i></li>
-                            <li href="#" class=""><i class="fa fa-tags"></i></li>
-                            <li href="#" class=""><i class="fa fa-users"></i></li>
+                            <a href="/home"><li class="@if($rota=="home")activeMenu @endif"><i class="fa fa-dashboard" title="Dashboard"></i></li></a>
+                            <a href="/jobs"><li class="@if($rota=="jobs")activeMenu @endif"><i class="fa fa-briefcase" title="Jobs"></i></li></a>
+                            <a href="/tags"><li class="@if($rota=="tags")activeMenu @endif"><i class="fa fa-tags" title="Tags"></i></li></a>
+                            <a href="/clientes"><li class="@if($rota=="clientes")activeMenu @endif"><i class="fa fa-users" title="Clientes"></i></li></a>
                         </ul>
                     </div>
                 </div>
