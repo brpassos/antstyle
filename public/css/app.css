@@ -11,6 +11,32 @@ body {
   /* Negative indent footer by it's height */
   margin: 0 auto -60px;
 }
+/*div flutuante para autocomplete*/
+.lista_Pesquisa {
+  position: absolute;
+  background-color: #FFFFFF;
+  border: solid 1px #CDCDCD;
+  padding: 5px;
+  display: none;
+  min-width: 400px;
+  height: 200px;
+  overflow-y: scroll;
+  z-index: 10000;
+}
+.lista_Pesquisa p {
+  margin: 10px;
+  border-bottom: solid 1px #E9E9E9;
+  cursor: pointer;
+}
+.lista_Pesquisa p:hover {
+  margin: 10px;
+  border-bottom: solid 1px #E9E9E9;
+  background-color: #F0F0F0;
+}
+.lista_Pesquisa p i {
+  margin-right: 5px;
+}
+/*div flutuante para autocomplete*/
 @font-face {
   font-family: "Aleo Regular";
   src: url("../fonts/aleo/regular/aleo-regular-webfont.eot");

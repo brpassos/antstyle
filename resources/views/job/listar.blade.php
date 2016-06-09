@@ -11,7 +11,7 @@
 
                 {!! Form::open(['name' =>'form']) !!}
                 <input type="hidden" ng-model="job.customer_id">
-                <div class="btn btn-sucess" ng-show="job.customer_id!=''"><% job.customerName %></div>
+                {{--<div class="btn btn-sucess" ng-show="job.customer_id!=''"><% job.customerName %></div>--}}
 
                 @include('job._form')
                 <button class="btn btn-info" type="button" ng-click="inserir()" ng-disabled="form.$invalid">Salvar</button>

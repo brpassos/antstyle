@@ -100,6 +100,10 @@ clanApp.controller('jobCtrl', function($scope, $http){
     listarJobs();
 
     //INSERIR/////////////////////////////
+
+
+    
+
     $scope.mostrarForm = false;
 
     $scope.inserir = function (){
@@ -128,7 +132,7 @@ clanApp.controller('jobCtrl', function($scope, $http){
         $scope.tituloExcluir = titulo;
         $scope.excluido = false;
         $scope.mensagemExcluido = "";
-    }
+    };
 
     $scope.excluir = function(id){
         $scope.processandoExcluir = true;

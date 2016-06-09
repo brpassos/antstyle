@@ -100,6 +100,10 @@ clanApp.controller('jobCtrl', function($scope, $http){
     listarJobs();
 
     //INSERIR/////////////////////////////
+
+
+    
+
     $scope.mostrarForm = false;
 
     $scope.inserir = function (){
