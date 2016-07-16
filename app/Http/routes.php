@@ -18,3 +18,17 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/tags', 'HomeController@index');
+Route::get('/clientes', 'HomeController@index');
+
+//JOBS//////////////////////////////////////////////////
+//Views
+Route::get('/jobs', 'JobController@index');
+Route::get('/job/{id}', 'JobController@detalhar');
+//Ajax
+Route::get('/listar-jobs', 'JobController@listar');
+Route::post('/inserir-job', 'JobController@inserir');
+Route::post('/alterar-job/{id}', 'JobController@alterar');
+Route::get('/excluir-job/{id}', 'JobController@excluir');
+///////////////////////////////////////////////////////////

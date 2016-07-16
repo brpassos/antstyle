@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container-fluid">
+
         <div>
             <p>
                teste1  teste2  teste3  teste4  teste5  teste6  teste  teste  teste  teste  teste  teste  teste  teste  teste
@@ -15,10 +15,10 @@
 
             </p>
         </div>
-    </div>
+   {{-- </div>--}}
 
 
-<div class="container">
+{{--<div class="container">--}}
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -96,5 +96,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

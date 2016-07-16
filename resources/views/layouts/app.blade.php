@@ -1,3 +1,10 @@
+<?php
+$rota = Route::getCurrentRoute()->getPath();
+$sidebar = true;
+if($rota=="/" || $rota=="register" || $rota=="login"){
+    $sidebar = false;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,11 +31,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand hidden-xs hidden-sm" style="cursor:pointer" id="menu-toggle" data-toggle="offcanvas" ng-click="sidebarOn=!sidebarOn" ng-init="sidebarOn=true">
+                    @if($sidebar)
+                    <a class="navbar-brand hidden-xs hidden-sm" style="cursor:pointer" id="menu-toggle" data-toggle="offcanvas" ng-click="sidebarOn=!sidebarOn"
+                      ng-init="sidebarOn=true">
                         <i class="fa fa-bars"></i>
                     </a>
-                    <a class="navbar-brand hidden-xs"><i class="fa" ng-class="{'fa-angle-left': sidebarOn, 'fa-angle-right': !sidebarOn}"></i></a>
 
+                    <a class="navbar-brand hidden-xs hidden-sm"><i class="fa" ng-class="{'fa-angle-left': sidebarOn, 'fa-angle-right': !sidebarOn}"></i></a>
+                    @endif
                     <a class="navbar-brand" href="{{ url('/') }}">
                         AntStyle
                     </a>
@@ -64,30 +74,43 @@
             </div>
         </nav>
 
-        <div id="wrapper" class="active">
+        @if(!$sidebar)
+            <style>
+                #wrapper{
+                    padding-left: 0;
+                }
+            </style>
+        @endif
+
+        <div id="wrapper" @if($sidebar)class="active"@endif>
+
+        @if($sidebar)
 
             <!-- Sidebar -->
-            <div id="sidebar-wrapper" ng-init="larguraTela=">
+            <div id="sidebar-wrapper">
                 <div class="row">
                     <div class="col-sm-9 col-md-9">
                         <ul class="sidebar-nav hidden-xs hidden-sm" id="sidebar">
-                            <li href="#" class="activeMenu"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;&nbsp;Dashboard</li>
-                            <li href="#" class=""><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Jobs</li>
-                            <li href="#" class=""><i class="fa fa-tags"></i>&nbsp;&nbsp;Tags</li>
-                            <li href="#" class=""><i class="fa fa-users"></i>&nbsp;&nbsp;Clientes</li>
+                            <a href="/home"><li class="@if($rota=="home")activeMenu @endif"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;&nbsp;Dashboard</li></a>
+                            <a href="/jobs"><li class="@if($rota=="jobs")activeMenu @endif"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Jobs</li></a>
+                            <a href="/tags"><li class="@if($rota=="tags")activeMenu @endif"><i class="fa fa-tags"></i>&nbsp;&nbsp;Tags</li></a>
+                            <a href="/clientes"><li class="@if($rota=="clientes")activeMenu @endif"><i class="fa fa-users"></i>&nbsp;&nbsp;Clientes</li></a>
                         </ul>
                     </div>
                     <div class="col-sm-3 col-md-3">
                         <ul class="sidebar-nav sidebar-icon" ng-class="{'displayIcons': sidebarOn}">
-                            <li href="#" class="activeMenu"><i class="fa fa-dashboard"></i></li>
-                            <li href="#" class=""><i class="fa fa-briefcase"></i></li>
-                            <li href="#" class=""><i class="fa fa-tags"></i></li>
-                            <li href="#" class=""><i class="fa fa-users"></i></li>
+                            <a href="/home"><li class="@if($rota=="home")activeMenu @endif"><i class="fa fa-dashboard" title="Dashboard"></i></li></a>
+                            <a href="/jobs"><li class="@if($rota=="jobs")activeMenu @endif"><i class="fa fa-briefcase" title="Jobs"></i></li></a>
+                            <a href="/tags"><li class="@if($rota=="tags")activeMenu @endif"><i class="fa fa-tags" title="Tags"></i></li></a>
+                            <a href="/clientes"><li class="@if($rota=="clientes")activeMenu @endif"><i class="fa fa-users" title="Clientes"></i></li></a>
                         </ul>
                     </div>
                 </div>
 
             </div>
+
+
+        @endif
 
 
             <!-- Page content -->
@@ -97,7 +120,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <br>
-                            @yield('content')
+                            <div class="container-fluid">
+                                @yield('content')
+                            </div>
                         </div>
                     </div>
                 </div>
