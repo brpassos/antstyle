@@ -1,7 +1,7 @@
 <?php
 $rota = Route::getCurrentRoute()->getPath();
 $sidebar = true;
-if($rota=="/" || $rota=="register"){
+if($rota=="/" || $rota=="register" || $rota=="login"){
     $sidebar = false;
 }
 ?>
