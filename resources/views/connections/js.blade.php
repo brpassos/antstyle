@@ -5,3 +5,6 @@
 {!! Html::script('lib/angular/ui-bootstrap-tpls-1.1.2.min.js') !!}
 {!! Html::script('js/app.js') !!}
 {!! Html::script('js/directives/initModel.js') !!}
+@if($rota=="jobs")
+    {!! Html::script('js/controllers/jobCtrl.js') !!}
+@endif
