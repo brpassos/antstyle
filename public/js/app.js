@@ -1,9 +1,1 @@
-var clanApp = angular.module('clanApp', [] ,function($interpolateProvider) {
-    $interpolateProvider.startSymbol('<%');
-    $interpolateProvider.endSymbol('%>');
-});
-
-
-
-
-
+var clanApp=angular.module("clanApp",[],["$interpolateProvider",function(a){a.startSymbol("<%"),a.endSymbol("%>")}]);

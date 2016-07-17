@@ -1,4 +1,4 @@
-clanApp.controller('jobCtrl', function($scope, $http){
+clanApp.controller('jobCtrl', ['$scope', '$http', function($scope, $http){
 
     $scope.jobs = [];
     $scope.currentPage = 1;
@@ -7,11 +7,11 @@ clanApp.controller('jobCtrl', function($scope, $http){
     $scope.maxSize = 5;
     $scope.itensPerPage = 10;
     $scope.dadoPesquisa = '';
-    $scope.campos = "id, job";
-    $scope.campoPesquisa = "job";
+    $scope.campos = "id, title";
+    $scope.campoPesquisa = "title";
     $scope.processandoListagem = false;
     $scope.processandoExcluir = false;
-    $scope.ordem = "job";
+    $scope.ordem = "title";
     $scope.sentidoOrdem = "asc";
     var $listar = false;//para impedir de carregar o conteúdo dos watchs no carregamento da página.
 
@@ -52,7 +52,7 @@ clanApp.controller('jobCtrl', function($scope, $http){
             $scope.primeiroDaPagina = data.from;
             $scope.ultimoDaPagina = data.to;
             $listar = true;
-            //console.log(data);
+            console.log(data);
             $scope.processandoListagem = false;
         }).error(function(data){
             $scope.message = "Ocorreu um erro: "+data;
@@ -154,4 +154,4 @@ clanApp.controller('jobCtrl', function($scope, $http){
     //////////////////////////////////
 
 
-});
+}]);

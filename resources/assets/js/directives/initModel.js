@@ -1,4 +1,4 @@
-clanApp.directive('initModel', function($compile) {
+clanApp.directive('initModel', ['$compile', function($compile) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -22,4 +22,4 @@ clanApp.directive('initModel', function($compile) {
             $compile(element)(scope);
         }
     };
-});
+}]);

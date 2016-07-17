@@ -1,4 +1,4 @@
-clanApp.controller('alterarJobCtrl', function($scope, $http){
+clanApp.controller('alterarJobCtrl', ['$scope', '$http', function($scope, $http){
 
     $scope.processandoSalvar = false;
 
@@ -29,4 +29,4 @@ clanApp.controller('alterarJobCtrl', function($scope, $http){
     /////////////////////////////////
 
 
-});
+}]);

@@ -36,7 +36,7 @@ class JobController extends Controller
     public function listar(Request $request)
     {
 
-        //Log::info('CAMPOS: '.$request->campos);
+        Log::info('CAMPOS: '.$request->campos);
 
         $campos = explode(", ", $request->campos);
 

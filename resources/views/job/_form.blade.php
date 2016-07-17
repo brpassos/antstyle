@@ -1,18 +1,18 @@
-{{--É NECESSÁRIO RODAR O COMANDO composer require illuminate/html E ALTERAR ACRESCENTAR LINHA NO ARQUIVO config/app.php--}}
+{{--ï¿½ NECESSï¿½RIO RODAR O COMANDO composer require illuminate/html E ALTERAR ACRESCENTAR LINHA NO ARQUIVO config/app.php--}}
 {!! Form::label('customer', 'Cliente') !!}<br>
 {!! Form::text('customer', null, ['class'=>"form-control form-width-md <% validar(job.job) %>", 'ng-model'=>'job.customer', 'ng-required'=>'true', 'init-model'=>'job.customer']) !!}
 <div ng-model="listaPesquisa" class="lista_Pesquisa" ng-show=""></div><br>
 
 
 {!! Form::label('job', 'Job') !!}<br>
-{!! Form::text('job', null, ['class'=>"form-control form-width-md <% validar(job.job) %>", 'ng-model'=>'job.job', 'ng-required'=>'true', 'init-model'=>'job.job']) !!}<br>
+{!! Form::text('job', null, ['class'=>"form-control form-width-md <% validar(job.title) %>", 'ng-model'=>'job.job', 'ng-required'=>'true', 'init-model'=>'job.job']) !!}<br>
 
 
 
 
 
 
-{{--SELECT DINÂMICO--}}
+{{--SELECT DINï¿½MICO--}}
 <?php
 /*foreach($customers as $customer){
     $clientes2[$customer->id] = $customer->name;
