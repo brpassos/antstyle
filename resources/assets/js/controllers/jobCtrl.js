@@ -97,6 +97,8 @@ clanApp.controller('jobCtrl', ['$scope', '$http', function($scope, $http){
 
     };
 
+    $scope.listCustomer
+
     listarJobs();
 
     //INSERIR/////////////////////////////

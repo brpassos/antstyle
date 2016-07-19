@@ -1,7 +1,7 @@
 {{--� NECESS�RIO RODAR O COMANDO composer require illuminate/html E ALTERAR ACRESCENTAR LINHA NO ARQUIVO config/app.php--}}
 {!! Form::label('customer', 'Cliente') !!}<br>
 {!! Form::text('customer', null, ['class'=>"form-control form-width-md <% validar(job.job) %>", 'ng-model'=>'job.customer', 'ng-required'=>'true', 'init-model'=>'job.customer']) !!}
-<div ng-model="listaPesquisa" class="lista_Pesquisa" ng-show=""></div><br>
+<div ng-model="listaPesquisa" class="lista_Pesquisa" ng-show="true"></div><br>
 
 
 {!! Form::label('job', 'Job') !!}<br>

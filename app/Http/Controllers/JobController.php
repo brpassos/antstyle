@@ -23,14 +23,14 @@ class JobController extends Controller
     {
         //DB::enableQueryLog();
 
-        $customers = DB::table('customers')
+        $clients = DB::table('clients')
             ->where([               
                 ['user_id', '=', Auth::user()->id],
             ])->get();
 
         //Log::info(DB::getQueryLog());
 
-        return view('job.listar', ['customers'  => $customers]);
+        return view('job.listar', ['clients'  => $clients]);
     }
 
     public function listar(Request $request)
